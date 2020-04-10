@@ -1,0 +1,2 @@
+# pbinfo
+my pbinfo repo
