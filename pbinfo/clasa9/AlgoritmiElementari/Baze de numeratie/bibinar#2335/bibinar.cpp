@@ -8,6 +8,7 @@ ofstream fout("bibinar.out");
 
 int main()
 {
+    system("cd");
     int n, x, s, nrCif, cpyX, i;
     fin >> n;
     while(n)
