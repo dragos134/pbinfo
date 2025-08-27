@@ -30,3 +30,14 @@ Console.WriteLine(prb338_1);
 
 var prb125_1 = AlgoLeetCode20Aug.IsPalindrome1("A man, a plan, a canal: Panama");
 Console.WriteLine(prb125_1);
+
+var prb169_1 = AlgoLeetCode21Aug.MajorityElement1([3, 2, 3]);
+Console.WriteLine(prb169_1);
+
+var prb58_1 = AlgoLeetCode21Aug.LengthOfLastWord1("a");
+Console.WriteLine(prb58_1);
+
+AlgoLeetCode21Aug.MoveZeroes1([0, 1, 0, 3, 12]);
+
+var prb345_1 = AlgoLeetCode21Aug.ReverseVowels1("leetcode");
+Console.WriteLine(prb345_1);
