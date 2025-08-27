@@ -39,5 +39,14 @@ Console.WriteLine(prb58_1);
 
 AlgoLeetCode21Aug.MoveZeroes1([0, 1, 0, 3, 12]);
 
-var prb345_1 = AlgoLeetCode21Aug.ReverseVowels1("leetcode");
+var prb345_1 = AlgoLeetCode21Aug.ReverseVowels1(",.");
 Console.WriteLine(prb345_1);
+
+var prb349_1 = AlgoLeetCode22Aug.Intersection1([1, 2, 2, 1], [2, 2]);
+Console.WriteLine(prb349_1);
+
+var prb387_1 = AlgoLeetCode22Aug.FirstUniqChar1("loveleetcode");
+Console.WriteLine(prb387_1);
+
+var prb14_1 = RandomProblems.LongestCommonPrefix(["dog", "racecar", "car"]);
+Console.WriteLine(prb14_1);

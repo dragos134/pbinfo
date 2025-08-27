@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AlgoLeetCode
+﻿namespace AlgoLeetCode
 {
     public static class AlgoLeetCode21Aug
     {
@@ -69,7 +63,7 @@ namespace AlgoLeetCode
 
         public static bool CanWinNim1(int n)
         {
-            return false;
+            return (n % 4 != 0);
         }
 
         public static string ReverseVowels1(string s)
@@ -81,11 +75,11 @@ namespace AlgoLeetCode
             int b = sSize - 1;
             while (a < b)
             {
-                while (!vowels.Contains(char.ToLower(chars[a])))
+                while (a < sSize && !vowels.Contains(char.ToLower(chars[a])))
                 {
                     a++;
                 }
-                while (!vowels.Contains(char.ToLower(chars[b])))
+                while (b >= 0 && !vowels.Contains(char.ToLower(chars[b])))
                 {
                     b--;
                 }
@@ -96,7 +90,7 @@ namespace AlgoLeetCode
                 a++;
                 b--;
             }
-            return chars.ToString() ?? "";
+            return new string(chars);
         }
     }
 }
