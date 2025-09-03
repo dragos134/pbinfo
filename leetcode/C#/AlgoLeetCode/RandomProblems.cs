@@ -558,5 +558,154 @@ namespace AlgoLeetCode
             }
             return cpyHead;
         }
+        public static bool IsIsomorphic(string s, string t)
+        {
+            int[] charsS = new int[256];
+            int[] charsT = new int[256];
+            int n = s.Length;
+            for (int i = 0; i < n; i++)
+            {
+                char ls = s[i];
+                char lt = t[i];
+                if (charsS[ls] != 0 || charsT[lt] != 0)
+                {
+                    if (charsS[ls] == 0 || charsT[lt] == 0)
+                    {
+                        return false;
+                    }
+                    if (charsS[ls] != lt || charsT[lt] != ls)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    charsS[ls] = lt;
+                    charsT[lt] = ls;
+                }
+            }
+            return true;
+        }
+
+        public static ListNode ReverseList1(ListNode head)
+        {
+            if (head == null) return null;
+            if (head.next != null)
+            {
+                var rev = ReverseList1(head.next);
+
+                return rev;
+            }
+            else
+            {
+
+                return head;
+            }
+        }
+
+        public static int MissingNumber1(int[] nums)
+        {
+            int sum = 0, n = nums.Length;
+            for (int i = 0; i < n; i++)
+            {
+                sum += nums[i];
+            }
+            return n * (n - 1) / 2 - sum;
+        }
+
+        public static int MissingNumber2(int[] nums)
+        {
+            return nums.Length * (nums.Length + 1) / 2 - nums.Sum();
+        }
+
+        public static bool ContainsNearbyDuplicate1(int[] nums, int k) // no extra space
+        {
+            int n = nums.Length;
+            for (int i = 0; i < n; i++)
+            {
+                int limit = Math.Min(i + k, n - 1);
+                for (int j = i + 1; j <= limit; j++)
+                {
+                    if (nums[i] == nums[j])
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static bool ContainsNearbyDuplicate2(int[] nums, int k) // O(n) time complexity
+        {
+            return false;
+        }
+
+        public static IList<string> SummaryRanges(int[] nums)
+        {
+            List<string> ans = new List<string>();
+            int start = 0, stop = 0, n = nums.Length;
+            for (int i = 0; i < n - 1; i++)
+            {
+
+                if (nums[i + 1] > nums[i] + 1)
+                {
+                    if (start == stop)
+                    {
+                        ans.Add($"{nums[start]}");
+                    }
+                    else
+                    {
+                        ans.Add($"{nums[start]}->{nums[stop]}");
+                    }
+                    start = i + 1;
+                    stop = i + 1;
+                }
+                else
+                {
+                    stop++;
+                }
+            }
+            if (start != n)
+            {
+                if (start == stop)
+                {
+                    ans.Add($"{nums[start]}");
+                }
+                else
+                {
+                    ans.Add($"{nums[start]}->{nums[stop]}");
+                }
+            }
+            return ans;
+        }
+
+        public static bool IsPalindrome(ListNode head)
+        {
+
+        }
+
+        public static bool IsAnagram(string s, string t)
+        {
+            int nS = s.Length, nT = t.Length;
+            if (nS != nT)
+            {
+                return false;
+            }
+            int[] charsS = new int[26];
+            int[] charsT = new int[26];
+            for (int i = 0; i < nS; i++)
+            {
+                charsS[s[i] - 'a']++;
+                charsT[t[i] - 'a']++;
+            }
+            for (int i = 0; i < 26; i++)
+            {
+                if (charsS[i] != charsT[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

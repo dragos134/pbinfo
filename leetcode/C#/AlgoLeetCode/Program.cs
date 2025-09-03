@@ -178,19 +178,19 @@ ListNode test203_1 = new ListNode
         val = 2,
         next = new ListNode
         {
-            val = 6,
+            val = 3,
             next = new ListNode
             {
-                val = 3,
+                val = 4,
                 next = new ListNode
                 {
-                    val = 4,
+                    val = 5,
                     next = new ListNode
                     {
-                        val = 5,
+                        val = 6,
                         next = new ListNode
                         {
-                            val = 6,
+                            val = 7,
                             next = null
                         }
                     }
@@ -200,4 +200,10 @@ ListNode test203_1 = new ListNode
     }
 };
 
-var prb203_1 = RandomProblems.RemoveElements(test203_1, 6);
+// var prb203_1 = RandomProblems.RemoveElements(test203_1, 6);
+
+var prb205_1 = RandomProblems.IsIsomorphic("egg", "add");
+
+var prb206_1 = RandomProblems.ReverseList1(test203_1);
+
+var prb219_1 = RandomProblems.ContainsNearbyDuplicate1([1, 2, 3, 1, 2, 3], 2);
