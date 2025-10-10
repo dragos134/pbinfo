@@ -681,7 +681,7 @@ namespace AlgoLeetCode
 
         public static bool IsPalindrome(ListNode head)
         {
-
+            return false;
         }
 
         public static bool IsAnagram(string s, string t)

@@ -207,3 +207,4 @@ var prb205_1 = RandomProblems.IsIsomorphic("egg", "add");
 var prb206_1 = RandomProblems.ReverseList1(test203_1);
 
 var prb219_1 = RandomProblems.ContainsNearbyDuplicate1([1, 2, 3, 1, 2, 3], 2);
+AlgoPbInfo.f();
