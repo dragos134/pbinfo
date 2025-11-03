@@ -25,7 +25,7 @@ int main()
     }
     else
     {
-        cout << max1 * max2;
+        cout << (long long)(max1 * max2);
     }
     return 0;
 }

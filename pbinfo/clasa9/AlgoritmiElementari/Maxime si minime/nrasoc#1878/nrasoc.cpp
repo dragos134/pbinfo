@@ -13,7 +13,7 @@ struct cif
 int main()
 {
     short n = 0;
-    bool isOk = false;
+    bool ok = false;
     cif v[80];
     while(fin >> v[n].cifra)
     {
@@ -26,12 +26,19 @@ int main()
         int xlast2 = v[i - 2].cifra;
         int xlast1 = v[i - 1].cifra;
         int x = v[i].cifra;
-        if(x > xlast2 && !isOk)
+        if(x > xlast2)
         {
-            isOk = true;
             v[i - 2].scoasa = 1;
             v[i - 1].scoasa = 1;
+            ok = true;
+            break;
         }
+    }
+
+    if(!ok)
+    {
+        v[n - 2].scoasa = 1;
+        v[n - 1].scoasa = 1;
     }
 
     for(int i = 0; i < n; i++)

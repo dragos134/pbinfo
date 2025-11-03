@@ -12,33 +12,22 @@ int main()
     if (c == 1)
     {
         fin >> p >> x;
-        int curr = 0;
-        if (p <= w + 1)
+        if(w < n)
         {
-            sum = p - 1;
-            curr = w - p + 1;
-            if (curr + x < w)
+            if(w < p - 1)
             {
-                sum += curr + x;
+                sum = w;
             }
-            else
-            {
-                sum += w;
-            }
-        }
-        else
-        {
-            sum = w;
         }
         fout << sum;
     }
     if (c == 2)
     {
         fin >> x;
-        if (w > n)
+        if (w >= n - 1)
         {
             p = n;
-            sum = p - 1;
+            sum = n - 1;
             int curr = w - p + 1;
             if (curr + x < w)
             {
@@ -51,14 +40,13 @@ int main()
         }
         else
         {
-            if (w - x > 0)
+            p = w + 1;
+            if (w > x)
             {
-                p = w - x + 1;
                 sum = w + x;
             }
             else
             {
-                p = w + 1;
                 sum = 2 * w;
             }
         }
