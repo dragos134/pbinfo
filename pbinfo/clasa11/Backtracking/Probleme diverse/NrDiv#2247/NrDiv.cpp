@@ -2,8 +2,12 @@
 
 using namespace std;
 
+int n, p;
+
 int main()
 {
-    cout << 756908162;
+    cin >> n;
+    
+    cout << p;
     return 0;
 }
