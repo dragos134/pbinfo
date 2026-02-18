@@ -9,6 +9,8 @@ int main()
     while(t)
     {
         t--;
+
+        // citire tablouri
         cin >> n;
         for(int i = 0; i < n; i++)
         {
@@ -19,9 +21,17 @@ int main()
         {
             cin >> b[i];
         }
+        ////
+
+
         int sum = 0, k = 0, ok = 1;
         for(int i = 0; i < n; i++)
         {
+            if(k == m)
+            {
+                ok = 0;
+                break;
+            }
             sum += a[i];
             if(k < m && sum == b[k])
             {

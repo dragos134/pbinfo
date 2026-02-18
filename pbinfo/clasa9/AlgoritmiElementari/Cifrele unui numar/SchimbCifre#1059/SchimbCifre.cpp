@@ -14,56 +14,12 @@ short nr_cif(long long n)
     return cnt;
 }
 
-int nrCifre(long long n)
-{
-    int nr = 0;
-    while (n)
-    {
-        nr++;
-        n /= 10;
-    }
-    return nr;
-}
-
-void schimbareCifre(long long &n, int a, int b)
-{
-    int i, nrA = 0, nrB = 0, nr = nrCifre(n);
-    long long cpy = n, p = 1;
-    i = nr;
-    if (a>nr || b>nr)
-        return;
-    while (cpy)
-    {
-        if (i == a)
-            nrB = cpy % 10;
-        if (i == b)
-            nrA = cpy % 10;
-        i--;
-        cpy /= 10;
-    }
-    i = nr;
-    cpy = n;
-    n = 0;
-    while (cpy)
-    {
-
-        if (i == a)
-            n = n + p * nrA;
-        else
-            if (i == b)
-                n = n + p * nrB;
-            else
-                n = n + p * (cpy % 10);
-        i--;
-        p *= 10;
-        cpy /= 10;
-    }
-
-}
-
-
 long long schimbare_cifre(long long n, short i, short j)
 {
+    if(i == j)
+    {
+        return n;
+    }
     long long pi = 1, pj = 1, cpyn = 0, p = 1;
     short ci = 0, cj = 0, cifn = nr_cif(n);
     bool oki = false, okj = false;
@@ -111,12 +67,34 @@ int main()
         cin >> vec[i][0] >> vec[i][1];
     }
 
+    int n_vec[11], cif = nr_cif(n);
+
+    for(int i = cif; i > 0; i--)
+    {
+        n_vec[i] = n % 10;
+        n /= 10; 
+    }
+    n = cpyn;
+
     do
     {
         for(short i = 0; i < m; i++)
         {
-            n = schimbare_cifre(n, vec[i][0], vec[i][1]);
+            int i1 = vec[i][0], i2 = vec[i][1];
+            
+            // schimbare cifre
+            int aux = n_vec[i1];
+            n_vec[i1] = n_vec[i2];
+            n_vec[i2] = aux;
         }
+
+        // reconstruire n
+        n = 0;
+        for(int i = 1; i <= cif; i++)
+        {
+            n = n * 10 + n_vec[i];
+        }
+
         k++;
     }
     while(n != cpyn && k < t);
@@ -127,12 +105,22 @@ int main()
     {
         for(short i = 0; i < m; i++)
         {
-            n = schimbare_cifre(n, vec[i][0], vec[i][1]);
+            int i1 = vec[i][0], i2 = vec[i][1];
+            // schimbare cifre
+            int aux = n_vec[i1];
+            n_vec[i1] = n_vec[i2];
+            n_vec[i2] = aux;
         }
     }
 
+    // reconstruire n
+    n = 0;
+    for(int i = 1; i <= cif; i++)
+    {
+        n = n * 10 + n_vec[i];
+    }
 
     cout << n;
 
-    return 0; 
-}    
+    return 0;
+}
